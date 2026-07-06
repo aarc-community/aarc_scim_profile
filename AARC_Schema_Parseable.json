@@ -1,0 +1,176 @@
+{
+    "id": "urn:geant:aarc-community:scim:schemas:core:1.0",
+    "name": "AARC Community Identity",
+    "description": "Attributes to describe a user in the context of his community, as defined by AARC",
+    "attributes": [
+        {
+            "name": "voPersonID",
+            "description": "The platform or enterprise identifier.",
+            "type": "string",
+            "multiValued": false,
+            "required": true,
+            "mutability": "immutable",
+            "returned": "default",
+            "uniqueness": "global",
+            "caseExact": false
+        },{
+            "name": "displayName",
+            "description": "The name(s) that should appear in white-pages-like applications for this person. From RFC2798 description: 'preferred name of a person to be used when displaying entries.'",
+            "type": "string",
+            "multiValued": false,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+        },{
+            "name": "givenName",
+            "description": "From RFC4519 description: 'The 'givenName' attribute type contains name strings that are the part of a person's name that is not their surname. Each string is one value of this multi-valued attribute.'",
+            "type": "string",
+            "multiValued": false,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+        },{
+            "name": "familyName",
+            "description": "Surname or family name. From RFC4519: 'The 'sn' ('surname' in X.500) attribute type contains name strings for the family names of a person. Each string is one value of this multi-valued attribute.'",
+            "type": "string",
+            "multiValued": true,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+        },{
+            "name": "email",
+            "description": "An email address of the same definition as the inetOrgPerson mail attribute (RFC 4524), with the additional characteristic that the address has been verified as being controlled by the subject of the record.",
+            "type": "string",
+            "multiValued": false,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "global",
+            "caseExact": false
+        },{
+            "name": "organizationName",
+            "description": "The distinguished name (DN) of the directory entry representing the institution with which the person is associated.The directory entry pointed to by this dn should be represented in the X.521(2001) 'organization' object class The attribute set for organization is defined as follows: o (Organization Name, required}",
+            "type": "string",
+            "multiValued": false,
+            "required": false,
+            "caseExact": false, 
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+        },{
+            "name": "schacHomeOrganization",
+            "description": "Specifies a subject's home organisation using the domain name of the organisation",
+            "type": "string",
+            "multiValued": false,
+            "required": false,
+            "caseExact": false,
+            "mutability": "readOnly",
+            "returned": "default",
+            "uniqueness": "global"
+        },{
+            "name": "voPersonExternalAffiliation",
+            "description": "An organization-specific affiliation as per voPersonAffiliation, but obtained from an external organization, and therefore scoped.",
+            "type": "string",
+            "multiValued": true,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none",
+            "caseExact": false
+        },{
+            "name": "voPersonExternalAffiliation",
+            "description": "An organization-specific affiliation as per voPersonAffiliation, but obtained from an external organization, and therefore scoped.",
+            "type": "complex",
+            "multiValued": true,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none",
+            "subAttributes": [
+                {
+                    "name": "value",
+                    "description": "Value of the voPersonExternalAffiliation. Example: gradstudent@yourvo.org",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                },
+                {
+                    "name": "prior",
+                    "description": "Denotes prior user affiliation, no longer current",
+                    "type": "boolean",
+                    "multiValued": false,
+                    "required": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                }
+            ]
+        },{
+            "name": "assurance",
+            "description": "Assurance of the identity of the user, following REFEDS Assurance Framework (RAF) but MAY use additional assurance frameworks.",
+            "type": "string",
+            "multiValued": true,
+            "required": true,
+            "caseExact": true,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+        },{
+            "name": "assurance",
+            "description": "Assurance of the identity of the user, following REFEDS Assurance Framework (RAF) but MAY use additional assurance frameworks.",
+            "type": "string",
+            "multiValued": true,
+            "required": true,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none",
+            "subAttributes": [
+                {
+                    "name": "value",
+                    "description": "Assurance of the identity of the user, following REFEDS Assurance Framework (RAF) but MAY use additional assurance frameworks.",
+                    "type": "string",
+                    "multiValued": true,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                }
+            ]
+        },{
+            "name": "entitlements",
+            "description": "URI (either URN or URL) that indicates a set of rights to specific resources.",
+            "type": "string",
+            "multiValued": true,
+            "required": false,
+            "caseExact": true,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+        },{
+
+        
+
+            "name": "eduPersonOrcid",
+            "description": "urn:oid:1.3.6.1.4.1.5923.1.1.1.16",
+            "type": "string",
+            "multiValued": false,
+            "required": false,
+            "caseExact": true,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+        }
+    ],
+    "meta": {
+        "resourceType": "Schema",
+        "location": "https://aarc-community.org/scim/schemas/urn:geant:aarc:scim:schemas:AARC_Community_Identity"
+    }
+}
