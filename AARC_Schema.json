@@ -7,109 +7,123 @@
             "name": "voPersonID",
             "description": "The platform or enterprise identifier.",
             "type": "string",
+            "uniqueness": "global",
             "multiValued": false, // upstream: true,
+            "caseExact": false,
             "required": true, // upstream: false,
             "mutability": "immutable",
-            "returned": "default",
-            "uniqueness": "global",
-            "caseExact": false
+            "returned": "default"
         },{
             "name": "displayName", // or name.displayName?
             "description": "The name(s) that should appear in white-pages-like applications for this person. From RFC2798 description: 'preferred name of a person to be used when displaying entries.'",
             "type": "string",
+            "uniqueness": "none"
             "multiValued": false,
+            "caseExact": false,
             "required": false,
             "mutability": "readWrite",
             "returned": "default",
-            "uniqueness": "none"
         },{
             "name": "givenName",
             "description": "From RFC4519 description: 'The 'givenName' attribute type contains name strings that are the part of a person's name that is not their surname. Each string is one value of this multi-valued attribute.'",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": false, // was: true, but we allow "space separated list"
+            "caseExact": false,
             "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "default"
         },{
             "name": "familyName", // was: sn"
             "description": "Surname or family name. From RFC4519: 'The 'sn' ('surname' in X.500) attribute type contains name strings for the family names of a person. Each string is one value of this multi-valued attribute.'",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": true,
+            "caseExact": false,
             "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "default"
         },{
             "name": "email", // copied from voPersonVerifiedEmail
             "description": "An email address of the same definition as the inetOrgPerson mail attribute (RFC 4524), with the additional characteristic that the address has been verified as being controlled by the subject of the record.",
             "type": "string",
+            "uniqueness": "global",
             "multiValued": false, // was true,
+            "caseExact": false,
             "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "global",
-            "caseExact": false
+            "returned": "default"
         },{
             "name": "organizationName", // copied from eduPersonOrgDN
             "description": "The distinguished name (DN) of the directory entry representing the institution with which the person is associated.The directory entry pointed to by this dn should be represented in the X.521(2001) 'organization' object class The attribute set for organization is defined as follows: o (Organization Name, required}",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": false,
-            "required": false,
             "caseExact": false, 
+            "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "default"
         },{
             "name": "schacHomeOrganization",
             "description": "Specifies a subject's home organisation using the domain name of the organisation",
             "type": "string",
+            "uniqueness": "global",
             "multiValued": false,
             "required": false,
             "caseExact": false,
             "mutability": "readOnly",
-            "returned": "default",
-            "uniqueness": "global"
+            "returned": "default"
+        },{
+            "name": "organizationCountry",
+            "description": " The country of the user’s Home Organisation. The attribute MUST use the two-letter ISO 3166 format or MUST use int for international organisations",
+            "type": "string",
+            "uniqueness": "none",
+            "multiValued": false,
+            "caseExact": false,
+            "required": false,
+            "mutability": "readOnly",
+            "returned": "default"
         },{
             "name": "voPersonExternalAffiliation", // why plural in name?
             "description": "An organization-specific affiliation as per voPersonAffiliation, but obtained from an external organization, and therefore scoped.",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": true,
+            "caseExact": false,
             "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none",
-            "caseExact": false
+            "returned": "default"
         },{
             "name": "voPersonExternalAffiliation", // alternative definition as a complex type
             "description": "An organization-specific affiliation as per voPersonAffiliation, but obtained from an external organization, and therefore scoped.",
             "type": "complex",
+            "uniqueness": "none",
             "multiValued": true,
             "required": false,
             "mutability": "readWrite",
             "returned": "default",
-            "uniqueness": "none",
             "subAttributes": [
                 {
                     "name": "value",
                     "description": "Value of the voPersonExternalAffiliation. Example: gradstudent@yourvo.org",
                     "type": "string",
+                    "uniqueness": "none",
                     "multiValued": false,
-                    "required": true,
                     "caseExact": false,
+                    "required": true,
                     "mutability": "readWrite",
-                    "returned": "default",
-                    "uniqueness": "none"
+                    "returned": "default"
                 },
                 {
                     "name": "prior",
                     "description": "Denotes prior user affiliation, no longer current",
                     "type": "boolean",
+                    "uniqueness": "none",
                     "multiValued": false,
+                    "caseExact": true,
                     "required": false,
                     "mutability": "readWrite",
-                    "returned": "default",
-                    "uniqueness": "none"
+                    "returned": "default"
                 }
             ]
         },{
@@ -119,12 +133,12 @@
             "status": "stable",
             "description": "Assurance of the identity of the user, following REFEDS Assurance Framework (RAF) but MAY use additional assurance frameworks.",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": true,
-            "required": true,
             "caseExact": true,
+            "required": true,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "default"
         },{
             "name": "assurance", // alternative definition as a complex type
             "saml_attribute_name": "eduPersonAssurance",
@@ -132,37 +146,35 @@
             "status": "stable",
             "description": "Assurance of the identity of the user, following REFEDS Assurance Framework (RAF) but MAY use additional assurance frameworks.",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": true,
             "required": true,
             "mutability": "readWrite",
             "returned": "default",
-            "uniqueness": "none",
             "subAttributes": [
                 {
                     "name": "value",
                     "description": "Assurance of the identity of the user, following REFEDS Assurance Framework (RAF) but MAY use additional assurance frameworks.",
                     "type": "string",
+                    "uniqueness": "none",
                     "multiValued": true,
-                    "required": true,
                     "caseExact": false,
+                    "required": true,
                     "mutability": "readWrite",
-                    "returned": "default",
-                    "uniqueness": "none"
+                    "returned": "default"
                 }
             ]
         },{
             "name": "entitlements", // same as eduPersonEntitlement
             "description": "URI (either URN or URL) that indicates a set of rights to specific resources.",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": true,
-            "required": false,
             "caseExact": true,
+            "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "default"
         },{
-
-        
 
             "name": "eduPersonOrcid",
             "saml_attribute_name": "eduPersonOrcid",
@@ -170,12 +182,12 @@
             "status": "stable",
             "description": "urn:oid:1.3.6.1.4.1.5923.1.1.1.16",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": false,
-            "required": false,
             "caseExact": true,
+            "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "default"
         }
     ],
     "meta": {
