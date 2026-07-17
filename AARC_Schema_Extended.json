@@ -1,0 +1,38 @@
+{
+    "id": "urn:geant:aarc-community:scim:schemas:extended:1.0:User",
+    "name": "AARC Community Identity",
+    "description": "Attributes to describe a user in the context of his community, as defined by AARC",
+    "attributes": [
+        {
+            "name": "organizationCountry",
+            "description": "The country of the user’s Home Organisation. The attribute SHOULD use the two-letter ISO 3166 format or MUST use int for international organisations.",
+            "type": "string",
+            "uniqueness": "none",
+            "multiValued": false,
+            "caseExact": false,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request"
+        },{
+            "name": "voPersonPolicyAgreement",
+            "description": "The URL(s) describing policy(ies) (e.g. Acceptable Use Policy) that has been agreed to by the user.",
+            "type": "string",
+            "uniqueness": "none",
+            "multiValued": true,
+            "caseExact": false,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request"
+        },{
+            "name": "nationalities",
+            "description": "The countries of citizenship for the subject it is associated with. The attribute value(s) MUST use the two-letter ISO 3166 format.",
+            "type": "string",
+            "uniqueness": "none",
+            "multiValued": true,
+            "caseExact": false,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request"
+        }
+    ]
+}

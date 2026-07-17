@@ -31,7 +31,7 @@ def parseOptions():
     """parse commandline parameters"""
     parser = argparse.ArgumentParser(description="""verify_schema.py""")
     parser.add_argument("--schema", default="AARC_Schema_Parseable.json")
-    parser.add_argument("--vopersonschema", default="voPerson_User_Parseable.json")
+    parser.add_argument("--ext_schema", default="AARC_Schema_Extended.json")
     parser.add_argument("--scim", default="AARC_SCIM_Example.json")
     return parser.parse_args()
 
@@ -85,7 +85,7 @@ def load_json_data(filename):
 
 args = parseOptions()
 aarc_schema_file = args.schema
-voperson_schema_file = args.vopersonschema
+aarc_ext_schema_file = args.ext_schema
 aarc_scim_file = args.scim
 
 if not os.path.exists(aarc_schema_file) and args.schema == "AARC_Schema_Parseable.json":
@@ -97,8 +97,8 @@ Please create it by running:
     sys.exit(3)
 
 # scim_schema = load_json_schema(aarc_schema_file)
-# scim_schema = load_json_schema(voperson_schema_file)
-scim_schema = load_json_schemas([aarc_schema_file, voperson_schema_file])
+# scim_schema = load_json_schema(aarc_ext_schema_file)
+scim_schema = load_json_schemas([aarc_schema_file, aarc_ext_schema_file])
 scim_data = load_json_data(aarc_scim_file)
 
 try:

@@ -2,7 +2,8 @@
     "schemas": [
         "urn:ietf:params:scim:schemas:core:2.0:User",
         "urn:temporaryNamespace:scim:schemas:voPerson:User",
-        "urn:geant:aarc:scim:schemas:AARCCommunity:User"
+        "urn:geant:aarc-community:scim:schemas:core:1.0:User",
+        "urn:geant:aarc-community:scim:schemas:extended:1.0:User"
     ],
     "id": "d7a53cb23423420398409de7355956560282158ecac8f3d2c770b474862f4756",
     "meta": {
@@ -12,79 +13,16 @@
         "location": "https://example.com/v2/Users/2819c223...",
         "version": "W/\"f250dd84f0671c3\""
     },
-    "userName": "some id",
-    "user": {
+    "urn:geant:aarc-community:scim:schemas:core:1.0:User": {
+        "voPersonID": "V097531",
         "displayName": "Elizabeth Alexandra Mary Mountbatten Windsor",
-        "givenName": [
-            "Elizabeth",
-            "Alexandra",
-            "Mary"
-        ],
-        "familyName": [
-            "Mountbatten",
-            "Windsor"
-        ]
-    },
-    "entitlements": [
-        {
-            "value": "urn:mace:egi.eu:group:royals:admins:role=owner#aai.egi.eu",
-            "$ref": "https://groups.royal.uk/core-team/?filter=admins"
-        },
-        {
-            "value": "urn:geant:edugain:group:royals:role=queen",
-            "$ref": "https://groups.edugain.org/royals/?role=queen"
-        }
-    ],
-    "emails": [
-        {
-            "value": "elizabeth@royal.uk",
-            "email_verified": true
-        },
-        {
-            "value": "liz@gmail.com",
-            "email_verified": false
-        }
-    ],
-    "urn:temporaryNamespace:scim:schemas:voPerson:User": {
-        "voPersonCertificateDN": [
-            {
-                "value": "C = DE, O = GermanGrid, OU = KIT, CN = Queen Elizabeth",
-                "prior": false,
-                "scope": "cert1"
-            }
-        ],
-        "voPersonCertificateIssuerDN": [
-            {
-                "value": "CN=CILogon Basic CA 1, O=CILogon, C=US, DC=cilogon, DC=org",
-                "scope": "cert1"
-            }
-        ],
-        "voPersonExternalAffiliation": [
-            {
-                "value": "gradstudent@yourvo.org",
-                "prior": false
-            }
-        ],
-        "voPersonScopedAffiliation": [
-            "member@community.of.royals.uk"
-        ],
-        "voPersonVerifiedEmail": [
-            {
-                "value": "elizabeth@royal.uk",
-                "preferred": true
-            },
-            {
-                "value": "liz@gmail.com",
-                "preferred": false
-            }
-        ],
-        "voPersonSshPublicKey": [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqA5FW6m3FbFhCOsRQBxKMRki5qJxoNhZdaeLXg6ym/",
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4/7MGLu0yTQP8mtDNlLtXjvG5WqnXDMoE92bV0whlt"
-        ]
-    },
-    "urn:geant:aarc:scim:schemas:AARCCommunity:User": {
-        "eduPersonAssurance": [
+        "givenName":   "Elizabeth Alexandra Mary",
+        "familyName":  "Mountbatten Windsor",
+        "email":       "elizabeth@royal.uk",
+        "organizationName": "Windsor Castle",
+        "schacHomeOrganization": "rct.uk",
+        "voPersonExternalAffiliation": [ "gradstudent@yourvo.org" ],
+        "assurance": [
             "https://refeds.org/assurance/IAP/high",
             "https://refeds.org/assurance/IAP/medium",
             "https://refeds.org/assurance/IAP/local-enterprise",
@@ -96,6 +34,35 @@
             "https://refeds.org/assurance/profile/cappuccino",
             "https://refeds.org/assurance/IAP/low"
         ],
-        "eduPersonOrcid": "https://orcid.org/0000-0002-1825-0097"
+        "entitlements": [
+            "urn:mace:egi.eu:group:royals:admins:role=owner#aai.egi.eu",
+            "urn:geant:edugain:group:royals:role=queen"
+        ],
+        "version": "https://aarc-community.org/attribute/profile/version/1.0",
+        "voPersonScopedAffiliation": [ "member@community.of.royals.uk" ],
+
+        "AARCExternalIDs": [
+           {
+                "iss":"https://github.com",
+                "id":"j-doe"
+           },{
+               "iss":"https://accounts.google.com",
+               "id":"jdoe@gmail.com"
+            }
+        ],
+
+        "eduPersonOrcid": "https://orcid.org/0000-0002-1825-0097",
+        "voPersonSshPublicKey": [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqA5FW6m3FbFhCOsRQBxKMRki5qJxoNhZdaeLXg6ym/",
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4/7MGLu0yTQP8mtDNlLtXjvG5WqnXDMoE92bV0whlt"
+        ],
+        "voPersonCertificateDN": [ "C = DE, O = GermanGrid, OU = KIT, CN = Queen Elizabeth" ],
+        "voPersonCertificateIssuerDN": [ "CN=CILogon Basic CA 1, O=CILogon, C=US, DC=cilogon, DC=org" ],
+        "UserType": "Human"
+    },
+    "urn:geant:aarc-community:scim:schemas:extended:1.0:User": {
+        "organizationCountry": "es",
+        "voPersonPolicyAgreement": "https://policy.com/aup.md",
+        "nationalities": ["uk"]
     }
 }

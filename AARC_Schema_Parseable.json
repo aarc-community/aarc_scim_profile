@@ -1,176 +1,248 @@
 {
-    "id": "urn:geant:aarc-community:scim:schemas:core:1.0",
+    "id": "urn:geant:aarc-community:scim:schemas:core:1.0:User",
     "name": "AARC Community Identity",
     "description": "Attributes to describe a user in the context of his community, as defined by AARC",
     "attributes": [
         {
             "name": "voPersonID",
-            "description": "The platform or enterprise identifier.",
+            "description": "A string representation of the subject’s identifier that is globally unique.",
             "type": "string",
+            "uniqueness": "global",
             "multiValued": false,
+            "caseExact": false,
             "required": true,
             "mutability": "immutable",
-            "returned": "default",
-            "uniqueness": "global",
-            "caseExact": false
+            "returned": "always"
         },{
             "name": "displayName",
-            "description": "The name(s) that should appear in white-pages-like applications for this person. From RFC2798 description: 'preferred name of a person to be used when displaying entries.'",
+            "description": "Subject’s full name in displayable form.",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": false,
-            "required": false,
+            "caseExact": false,
+            "required": true,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "request"
         },{
             "name": "givenName",
-            "description": "From RFC4519 description: 'The 'givenName' attribute type contains name strings that are the part of a person's name that is not their surname. Each string is one value of this multi-valued attribute.'",
+            "description": "Name strings that are the part of a subject's name that is not their surname.",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": false,
+            "caseExact": false,
             "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "request"
         },{
             "name": "familyName",
-            "description": "Surname or family name. From RFC4519: 'The 'sn' ('surname' in X.500) attribute type contains name strings for the family names of a person. Each string is one value of this multi-valued attribute.'",
+            "description": "Family Name",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": true,
+            "caseExact": false,
             "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "request"
         },{
             "name": "email",
-            "description": "An email address of the same definition as the inetOrgPerson mail attribute (RFC 4524), with the additional characteristic that the address has been verified as being controlled by the subject of the record.",
+            "description": "The subject’s primary (preferred) email address for contact purposes. This email address must be formatted in Mailbox form as specified in RFC2821.",
             "type": "string",
+            "uniqueness": "global",
             "multiValued": false,
+            "caseExact": false,
             "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "global",
-            "caseExact": false
+            "returned": "request"
         },{
             "name": "organizationName",
-            "description": "The distinguished name (DN) of the directory entry representing the institution with which the person is associated.The directory entry pointed to by this dn should be represented in the X.521(2001) 'organization' object class The attribute set for organization is defined as follows: o (Organization Name, required}",
+            "description": "Standard name of the organisation (institution) with which this subject is associated.",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": false,
-            "required": false,
             "caseExact": false, 
+            "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "request"
         },{
             "name": "schacHomeOrganization",
-            "description": "Specifies a subject's home organisation using the domain name of the organisation",
+            "description": "Specifies a subject’s home organisation using the domain name of the organisation according to [RFC1035].",
             "type": "string",
+            "uniqueness": "global",
             "multiValued": false,
             "required": false,
             "caseExact": false,
-            "mutability": "readOnly",
-            "returned": "default",
-            "uniqueness": "global"
+            "mutability": "readWrite",
+            "returned": "request"
         },{
-            "name": "voPersonExternalAffiliation",
-            "description": "An organization-specific affiliation as per voPersonAffiliation, but obtained from an external organization, and therefore scoped.",
+            "name": "voPersonExternalAffiliations",
+            "description": "One or more home organisations (such as, universities, research institutions or private companies) that this subject is affiliated with. The syntax and semantics follows the eduPersonScopedAffiliation attribute.",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": true,
+            "caseExact": false,
             "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none",
-            "caseExact": false
+            "returned": "default"
         },{
-            "name": "voPersonExternalAffiliation",
-            "description": "An organization-specific affiliation as per voPersonAffiliation, but obtained from an external organization, and therefore scoped.",
+            "name": "voPersonExternalAffiliations",
+            "description": "One or more home organisations (such as, universities, research institutions or private companies) that this subject is affiliated with. The syntax and semantics follows the eduPersonScopedAffiliation attribute.",
             "type": "complex",
-            "multiValued": true,
-            "required": false,
-            "mutability": "readWrite",
-            "returned": "default",
             "uniqueness": "none",
+            "multiValued": true,
+            "required": true,
+            "mutability": "readWrite",
+            "returned": "request",
             "subAttributes": [
                 {
                     "name": "value",
                     "description": "Value of the voPersonExternalAffiliation. Example: gradstudent@yourvo.org",
                     "type": "string",
+                    "uniqueness": "none",
                     "multiValued": false,
-                    "required": true,
                     "caseExact": false,
+                    "required": true,
                     "mutability": "readWrite",
-                    "returned": "default",
-                    "uniqueness": "none"
+                    "returned": "request"
                 },
                 {
                     "name": "prior",
                     "description": "Denotes prior user affiliation, no longer current",
                     "type": "boolean",
+                    "uniqueness": "none",
                     "multiValued": false,
+                    "caseExact": false,
                     "required": false,
                     "mutability": "readWrite",
-                    "returned": "default",
-                    "uniqueness": "none"
+                    "returned": "request"
                 }
             ]
         },{
             "name": "assurance",
-            "description": "Assurance of the identity of the user, following REFEDS Assurance Framework (RAF) but MAY use additional assurance frameworks.",
+            "description": "The assurance of the subject’s identity, following the components defined in the REFEDS Assurance Framework (RAF), including Identifier Uniqueness, Identity Assurance, and Attribute Assurance. AARC-compliant AAIs MAY also support additional assurance frameworks where relevant.",
             "type": "string",
-            "multiValued": true,
-            "required": true,
-            "caseExact": true,
-            "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
-        },{
-            "name": "assurance",
-            "description": "Assurance of the identity of the user, following REFEDS Assurance Framework (RAF) but MAY use additional assurance frameworks.",
-            "type": "string",
-            "multiValued": true,
-            "required": true,
-            "mutability": "readWrite",
-            "returned": "default",
             "uniqueness": "none",
-            "subAttributes": [
-                {
-                    "name": "value",
-                    "description": "Assurance of the identity of the user, following REFEDS Assurance Framework (RAF) but MAY use additional assurance frameworks.",
-                    "type": "string",
-                    "multiValued": true,
-                    "required": true,
-                    "caseExact": false,
-                    "mutability": "readWrite",
-                    "returned": "default",
-                    "uniqueness": "none"
-                }
-            ]
+            "multiValued": true,
+            "caseExact": true,
+            "required": true,
+            "mutability": "readWrite",
+            "returned": "always"
         },{
             "name": "entitlements",
-            "description": "URI (either URN or URL) that indicates a set of rights to specific resources.",
+            "description": "This attribute describes the groups and roles this subject is a member of (AARC-G069) or the resource or child-resource a subject is allowed to access, optionally specifying certain actions the subject is entitled to perform (AARC-G027).",
             "type": "string",
+            "uniqueness": "none",
             "multiValued": true,
-            "required": false,
             "caseExact": true,
+            "required": false,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "request"
         },{
-
-        
-
-            "name": "eduPersonOrcid",
-            "description": "urn:oid:1.3.6.1.4.1.5923.1.1.1.16",
+            "name": "Version",
+            "description": "This attribute indicates the version of the AARC Attribute Profile that is being used. It provides a clear reference to the specific set of attributes and definitions that the subject’s digital identity conforms to.",
             "type": "string",
+            "uniqueness": "global",
             "multiValued": false,
-            "required": false,
             "caseExact": true,
+            "required": true,
             "mutability": "readWrite",
-            "returned": "default",
-            "uniqueness": "none"
+            "returned": "request"
+        },{
+            "name": "voPersonScopedAffiliation",
+            "description": "Specifies the person's affiliation within the Community/Research infrastructure in broad categories defined in the eduPerson schema. Any scope (e.g. “community.example.org”) used after the at sign MUST be announced by the Collaboration Management",
+            "type": "string",
+            "uniqueness": "none",
+            "multiValued": true,
+            "caseExact": true,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request"
+        },{
+            "name": "AARCExternalIDs",
+            "description": "External identifiers of the user (e.g. GitHub, Home Organisation identifier, gmail, etc)",
+            "type": "complex",
+            "uniqueness": "none",
+            "multiValued": true,
+            "caseExact": true,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request",
+            "subAttributes": [
+                {
+                    "name": "iss",
+                    "description": "",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": true,
+                    "caseExact": false,
+                    "required": true,
+                    "mutability": "readWrite",
+                    "returned": "default"
+                },{
+                    "name": "id",
+                    "description": "",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": true,
+                    "caseExact": false,
+                    "required": true,
+                    "mutability": "readWrite",
+                    "returned": "default"
+                }
+            ]
+        },{
+            "name": "eduPersonOrcid",
+            "description": "ORCID identifier assigned to this user.",
+            "type": "string",
+            "uniqueness": "none",
+            "multiValued": false,
+            "caseExact": true,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request"
+        },{
+            "name": "sshPublicKey",
+            "description": "SSH public key(s) of the user.",
+            "type": "string",
+            "uniqueness": "none",
+            "multiValued": true,
+            "caseExact": true,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request"
+        },{
+            "name": "voPersonCertificateDN",
+            "description": "The Subject Distinguished Name(s) of the user's X.509 certificate(s).",
+            "type": "string",
+            "uniqueness": "none",
+            "multiValued": true,
+            "caseExact": true,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request"
+        },{
+            "name": "voPersonCertificateIssuerDN",
+            "description": "The Subject Distinguished Name(s) of the user’s X.509 certificate issuer(s).",
+            "type": "string",
+            "uniqueness": "none",
+            "multiValued": true,
+            "caseExact": true,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request"
+        },{
+            "name": "UserType",
+            "description": "This attribute indicates if the Community ID is a user ID or a service ID. A the Community user ID is a Community ID issued to a natural person who registers to the Collaboration Management. A Community service ID is a Community ID used by services which need to authenticate with other services. A Community service ID is owned by at least one Community user ID holder who is responsible for the service ID.",
+            "type": "string",
+            "uniqueness": "none",
+            "multiValued": false,
+            "caseExact": false,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request"
         }
     ],
     "meta": {
         "resourceType": "Schema",
-        "location": "https://aarc-community.org/scim/schemas/urn:geant:aarc:scim:schemas:AARC_Community_Identity"
+        "location": "https://aarc-community.org/scim/schemas/urn:geant:aarc-community:scim:schemas:core:1.0:User"
     }
 }
