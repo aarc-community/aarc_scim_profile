@@ -35,8 +35,13 @@
             "https://refeds.org/assurance/IAP/low"
         ],
         "entitlements": [
-            "urn:mace:egi.eu:group:royals:admins:role=owner#aai.egi.eu",
-            "urn:geant:edugain:group:royals:role=queen"
+            {
+                "value": "urn:mace:egi.eu:group:royals:admins:role=owner#aai.egi.eu",
+                "type": "Group",
+                "display": "Royal Group"
+            },{
+                "value": "urn:geant:edugain:group:royals:role=queen"
+            }
         ],
         "version": "https://aarc-community.org/attribute/profile/version/1.0",
         "voPersonScopedAffiliation": [ "member@community.of.royals.uk" ],
