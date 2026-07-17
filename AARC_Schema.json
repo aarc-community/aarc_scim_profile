@@ -24,25 +24,37 @@
             "mutability": "readWrite",
             "returned": "request"
         },{
-            "name": "givenName",
-            "description": "Name strings that are the part of a subject's name that is not their surname.",
-            "type": "string",
-            "uniqueness": "none",
-            "multiValued": false,
-            "caseExact": false,
-            "required": false,
-            "mutability": "readWrite",
-            "returned": "request"
-        },{
-            "name": "familyName",
-            "description": "Family Name",
-            "type": "string",
+            "name": "name",
+            "description": "",
+            "type": "complex",
             "uniqueness": "none",
             "multiValued": true,
-            "caseExact": false,
-            "required": false,
+            "required": true,
             "mutability": "readWrite",
-            "returned": "request"
+            "returned": "request",
+            "subAttributes": [
+                {
+                    "name": "givenName",
+                    "description": "Name strings that are the part of a subject's name that is not their surname.",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": false,
+                    "caseExact": false,
+                    "required": false,
+                    "mutability": "readWrite",
+                    "returned": "request"
+                },{
+                    "name": "familyName",
+                    "description": "Family Name",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": true,
+                    "caseExact": false,
+                    "required": false,
+                    "mutability": "readWrite",
+                    "returned": "request"
+                }
+            ]
         },{
             "name": "email",
             "description": "The subject’s primary (preferred) email address for contact purposes. This email address must be formatted in Mailbox form as specified in RFC2821.",
@@ -103,8 +115,7 @@
                     "required": true,
                     "mutability": "readWrite",
                     "returned": "request"
-                },
-                {
+                },{
                     "name": "prior",
                     "description": "Denotes prior user affiliation, no longer current",
                     "type": "boolean",
@@ -139,6 +150,48 @@
             "required": false,
             "mutability": "readWrite",
             "returned": "request"
+        },{
+            "name": "entitlements",
+            "description": "This attribute describes the groups and roles this subject is a member of (AARC-G069) or the resource or child-resource a subject is allowed to access, optionally specifying certain actions the subject is entitled to perform (AARC-G027).",
+            "type": "complex",
+            "uniqueness": "none",
+            "multiValued": true,
+            "caseExact": true,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request",
+            "subAttributes": [
+                {
+                    "name": "value",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": false,
+                    "caseExact": false,
+                    "required": false,
+                    "mutability": "readWrite",
+                    "returned": "request"
+                },{
+                    "name": "type",
+                    "description": "Type of the entitlement",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": true,
+                    "caseExact": false,
+                    "required": false,
+                    "mutability": "readWrite",
+                    "returned": "request"
+                },{
+                    "name": "display",
+                    "description": "Display name of the entitlement",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": true,
+                    "caseExact": false,
+                    "required": false,
+                    "mutability": "readWrite",
+                    "returned": "request"
+                }
+            ]
         },{
             "name": "Version",
             "description": "This attribute indicates the version of the AARC Attribute Profile that is being used. It provides a clear reference to the specific set of attributes and definitions that the subject’s digital identity conforms to.",
