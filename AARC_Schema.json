@@ -133,13 +133,36 @@
             "saml_attribute_urn": "urn:oid:1.3.6.1.4.1.5923.1.1.1.11",
             "status": "stable",
             "description": "The assurance of the subject’s identity, following the components defined in the REFEDS Assurance Framework (RAF), including Identifier Uniqueness, Identity Assurance, and Attribute Assurance. AARC-compliant AAIs MAY also support additional assurance frameworks where relevant.",
-            "type": "string",
+            "type": "complex",
             "uniqueness": "none",
             "multiValued": true,
             "caseExact": true,
             "required": true,
             "mutability": "readWrite",
-            "returned": "always"
+            "returned": "always",
+            "subAttributes": [
+                {
+                    "name": "value",
+                    "description": "Value of the voPersonExternalAffiliation. Example: gradstudent@yourvo.org",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": true,
+                    "caseExact": true,
+                    "required": true,
+                    "mutability": "readWrite",
+                    "returned": "always"
+                },{
+                    "name": "prior",
+                    "description": "Denotes prior user affiliation, no longer current",
+                    "type": "boolean",
+                    "uniqueness": "none",
+                    "multiValued": true,
+                    "caseExact": false,
+                    "required": false,
+                    "mutability": "readWrite",
+                    "returned": "always"
+                }
+            ]
         },{
             "name": "entitlements",
             "description": "This attribute describes the groups and roles this subject is a member of (AARC-G069) or the resource or child-resource a subject is allowed to access, optionally specifying certain actions the subject is entitled to perform (AARC-G027).",
@@ -175,7 +198,7 @@
                     "description": "Type of the entitlement",
                     "type": "string",
                     "uniqueness": "none",
-                    "multiValued": true,
+                    "multiValued": false,
                     "caseExact": false,
                     "required": false,
                     "mutability": "readWrite",

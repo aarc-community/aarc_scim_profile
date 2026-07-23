@@ -22,6 +22,10 @@
         "organizationName": "Windsor Castle",
         "schacHomeOrganization": "rct.uk",
         "voPersonExternalAffiliation": [ "gradstudent@yourvo.org" ],
+        "voPersonExternalAffiliation": {
+            "value": [ "gradstudent@yourvo.org", "me@myvo.org" ],
+            "prior": [ "kindergarten@smallpeople.gov" ]
+        },
         "assurance": [
             "https://refeds.org/assurance/IAP/high",
             "https://refeds.org/assurance/IAP/medium",
