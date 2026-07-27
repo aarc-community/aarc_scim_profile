@@ -45,7 +45,7 @@
                     "returned": "request"
                 },{
                     "name": "familyName",
-                    "description": "Family Name",
+                    "description": "Surname(s) or last name(s) of the End-User.",
                     "type": "string",
                     "uniqueness": "none",
                     "multiValued": true,
@@ -87,16 +87,6 @@
             "returned": "request"
         },{
             "name": "voPersonExternalAffiliations",
-            "description": "One or more home organisations (such as, universities, research institutions or private companies) that this subject is affiliated with. The syntax and semantics follows the eduPersonScopedAffiliation attribute.",
-            "type": "string",
-            "uniqueness": "none",
-            "multiValued": true,
-            "caseExact": false,
-            "required": false,
-            "mutability": "readWrite",
-            "returned": "default"
-        },{
-            "name": "voPersonExternalAffiliations", // alternative definition as a complex type
             "description": "One or more home organisations (such as, universities, research institutions or private companies) that this subject is affiliated with. The syntax and semantics follows the eduPersonScopedAffiliation attribute.",
             "type": "complex",
             "uniqueness": "none",
@@ -253,7 +243,7 @@
                     "uniqueness": "none",
                     "multiValued": true,
                     "caseExact": false,
-                    "required": true,
+                    "required": false,
                     "mutability": "readWrite",
                     "returned": "default"
                 },{
