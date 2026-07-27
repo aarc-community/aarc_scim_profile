@@ -105,16 +105,6 @@
                     "required": true,
                     "mutability": "readWrite",
                     "returned": "request"
-                },{
-                    "name": "prior",
-                    "description": "Denotes prior user affiliation, no longer current",
-                    "type": "boolean",
-                    "uniqueness": "none",
-                    "multiValued": false,
-                    "caseExact": false,
-                    "required": false,
-                    "mutability": "readWrite",
-                    "returned": "request"
                 }
             ]
         },{
@@ -139,16 +129,6 @@
                     "multiValued": true,
                     "caseExact": true,
                     "required": true,
-                    "mutability": "readWrite",
-                    "returned": "always"
-                },{
-                    "name": "prior",
-                    "description": "Denotes prior user affiliation, no longer current",
-                    "type": "boolean",
-                    "uniqueness": "none",
-                    "multiValued": true,
-                    "caseExact": false,
-                    "required": false,
                     "mutability": "readWrite",
                     "returned": "always"
                 }
