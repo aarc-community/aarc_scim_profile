@@ -154,16 +154,6 @@
                     "mutability": "readWrite",
                     "returned": "request"
                 },{
-                    "name": "type",
-                    "description": "Type of the entitlement",
-                    "type": "string",
-                    "uniqueness": "none",
-                    "multiValued": false,
-                    "caseExact": false,
-                    "required": false,
-                    "mutability": "readWrite",
-                    "returned": "request"
-                },{
                     "name": "display",
                     "description": "Display name of the entitlement",
                     "type": "string",
