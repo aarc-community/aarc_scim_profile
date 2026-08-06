@@ -23,6 +23,11 @@
             "required": false,
             "mutability": "readWrite",
             "returned": "request"
+            "subAttributes": [
+                value => versioned URL
+                time: created
+                time: last_agreed
+                => Think about this.
         },{
             "name": "nationalities",
             "description": "The countries of citizenship for the subject it is associated with. The attribute value(s) MUST use the two-letter ISO 3166 format.",

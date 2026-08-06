@@ -4,12 +4,12 @@
     "description": "Attributes to describe a user in the context of his community, as defined by AARC",
     "attributes": [
         {
-            "name": "voPersonID",
+            "name": "voPersonId",
             "description": "A string representation of the subject’s identifier that is globally unique.",
             "type": "string",
             "uniqueness": "global",
             "multiValued": false,
-            "caseExact": false,
+            "caseExact": true,
             "required": true,
             "mutability": "immutable",
             "returned": "always"
