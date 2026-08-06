@@ -2,7 +2,7 @@
 
 
 cat AARC_Schema.json\
-    | grep -vE "(saml_attribute_name|saml_attribute_urn|status)" \
+    | grep -vE "(saml_attribute_name|saml_attribute_urn|status|notes)" \
     | sed s_\ //.*__ \
     | sed s/\"unclear.*\"/true/ \
     | sed s/\"to\ be\ evaluated\"/true/ \
@@ -10,7 +10,7 @@ cat AARC_Schema.json\
 
 
 cat voPerson_User.json\
-    | grep -vE "(saml_attribute_name|saml_attribute_urn|status)" \
+    | grep -vE "(saml_attribute_name|saml_attribute_urn|status|notes)" \
     | sed s_\ //.*__ \
     | sed s/\"unclear.*\"/true/ \
     | sed s/\"to\ be\ evaluated\"/true/ \
