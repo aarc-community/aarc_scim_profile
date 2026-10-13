@@ -105,6 +105,16 @@
                     "required": true,
                     "mutability": "readWrite",
                     "returned": "request"
+                },{
+                    "name": "prior",
+                    "description": "A prior value of this attribute.",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": false,
+                    "caseExact": false,
+                    "required": true,
+                    "mutability": "readWrite",
+                    "returned": "request"
                 }
             ]
         },{
