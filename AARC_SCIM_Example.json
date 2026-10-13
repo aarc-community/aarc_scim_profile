@@ -1,7 +1,6 @@
 {
     "schemas": [
         "urn:ietf:params:scim:schemas:core:2.0:User",
-        "urn:temporaryNamespace:scim:schemas:voPerson:User",
         "urn:geant:aarc-community:scim:schemas:core:1.0:User",
         "urn:geant:aarc-community:scim:schemas:extended:1.0:User"
     ],
@@ -26,18 +25,20 @@
             "value": [ "gradstudent@yourvo.org", "me@myvo.org" ],
             "prior": [ "kindergarten@smallpeople.gov" ]
         },
-        "assurance": [
-            "https://refeds.org/assurance/IAP/high",
-            "https://refeds.org/assurance/IAP/medium",
-            "https://refeds.org/assurance/IAP/local-enterprise",
-            "https://refeds.org/assurance/ID/eppn-unique-no-reassign",
-            "https://refeds.org/assurance/ATP/ePA-1m",
-            "https://refeds.org/assurance/ATP/ePA-1d",
-            "https://aai.egi.eu/LoA#Substantial",
-            "https://refeds.org/assurance/ID/unique",
-            "https://refeds.org/assurance/profile/cappuccino",
-            "https://refeds.org/assurance/IAP/low"
-        ],
+        "assurance": {
+            "value": [
+                "https://refeds.org/assurance/IAP/high",
+                "https://refeds.org/assurance/IAP/medium",
+                "https://refeds.org/assurance/IAP/local-enterprise",
+                "https://refeds.org/assurance/ID/eppn-unique-no-reassign",
+                "https://refeds.org/assurance/ATP/ePA-1m",
+                "https://refeds.org/assurance/ATP/ePA-1d",
+                "https://aai.egi.eu/LoA#Substantial",
+                "https://refeds.org/assurance/ID/unique",
+                "https://refeds.org/assurance/profile/cappuccino",
+                "https://refeds.org/assurance/IAP/low"
+            ]
+        },
         "entitlements": [
             {
                 "value": "urn:mace:egi.eu:group:royals:admins:role=owner#aai.egi.eu",
