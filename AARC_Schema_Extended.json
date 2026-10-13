@@ -1,9 +1,92 @@
 {
     "id": "urn:geant:aarc-community:scim:schemas:extended:1.0:User",
     "name": "AARC Community Identity",
-    "description": "Attributes to describe a user in the context of his community, as defined by AARC",
+    "description": "Attributes to describe a user in the context of his community, as defined by AARC.",
     "attributes": [
         {
+            "name": "externalIds",
+            "description": "External identifiers of the user (e.g. GitHub, Home Organisation identifier, gmail, etc).",
+            "type": "complex",
+            "uniqueness": "none",
+            "multiValued": true,
+            "caseExact": true,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "request",
+            "subAttributes": [
+                {
+                    "name": "iss",
+                    "description": "A URI that uniquely identifies the entity that issued the identifier.",
+                    "type": "string",
+                    "uniqueness": true,
+                    "multiValued": false,
+                    "caseExact": false,
+                    "required": true,
+                    "mutability": "readWrite",
+                    "returned": "default"
+                },{
+                    "name": "claim_name",
+                    "description": "A case-sensitive string identifying the claim or attribute through which the issuer released the identifier.",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": false,
+                    "caseExact": false,
+                    "required": false,
+                    "mutability": "readWrite",
+                    "returned": "default"
+                },{
+                    "name": "value",
+                    "description": "A non-empty string containing one identifier value exactly as released by the issuer.",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": false,
+                    "caseExact": false,
+                    "required": true,
+                    "mutability": "readWrite",
+                    "returned": "default"
+                },{
+                    "name": "pairwise",
+                    "description": "A Boolean indicating whether the identifier is pairwise. Defaults to false.",
+                    "type": "boolean",
+                    "uniqueness": "none",
+                    "multiValued": false,
+                    "caseExact": false,
+                    "required": false,
+                    "mutability": "readWrite",
+                    "returned": "default"
+                },{
+                    "name": "reassignable",
+                    "description": "A Boolean indicating whether the issuer may reassign the identifier value to another subject. Defaults to false.",
+                    "type": "boolean",
+                    "uniqueness": "none",
+                    "multiValued": false,
+                    "caseExact": false,
+                    "required": true,
+                    "mutability": "readWrite",
+                    "returned": "default"
+                },{
+                    "name": "globally_unique",
+                    "description": "Boolean indicating whether value is globally unique without considering iss or claim (when present). Defaults to false.",
+                    "type": "boolean",
+                    "uniqueness": "none",
+                    "multiValued": false,
+                    "caseExact": false,
+                    "required": true,
+                    "mutability": "readWrite",
+                    "returned": "default"
+                },{
+                    "name": "case_sensitive",
+                    "description": "A Boolean indicating whether case-sensitive comparison applies to value. Defaults to false.",
+                    "type": "boolean",
+                    "uniqueness": "none",
+                    "multiValued": false,
+                    "caseExact": false,
+                    "required": true,
+                    "mutability": "readWrite",
+                    "returned": "default"
+                }
+            ]
+        },{
             "name": "organizationCountry",
             "description": "The country of the user’s Home Organisation. The attribute SHOULD use the two-letter ISO 3166 format or MUST use int for international organisations.",
             "type": "string",
