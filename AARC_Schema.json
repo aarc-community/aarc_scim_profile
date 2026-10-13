@@ -194,39 +194,6 @@
             "mutability": "readWrite",
             "returned": "request"
         },{
-            "name": "AARCExternalIDs", // maybe v1.x
-            "description": "External identifiers of the user (e.g. GitHub, Home Organisation identifier, gmail, etc)",
-            "type": "complex",
-            "uniqueness": "none",
-            "multiValued": true,
-            "caseExact": true,
-            "required": false,
-            "mutability": "readWrite",
-            "returned": "request",
-            "subAttributes": [
-                {
-                    "name": "iss",
-                    "description": "",
-                    "type": "string",
-                    "uniqueness": "none",
-                    "multiValued": true,
-                    "caseExact": false,
-                    "required": false,
-                    "mutability": "readWrite",
-                    "returned": "default"
-                },{
-                    "name": "id",
-                    "description": "",
-                    "type": "string",
-                    "uniqueness": "none",
-                    "multiValued": true,
-                    "caseExact": false,
-                    "required": true,
-                    "mutability": "readWrite",
-                    "returned": "default"
-                }
-            ]
-        },{
             "name": "eduPersonOrcid", // maybe v1.x
             "saml_attribute_name": "eduPersonOrcid",
             "saml_attribute_urn": "urn:oid:1.3.6.1.4.1.5923.1.1.1.16",
@@ -239,7 +206,7 @@
             "mutability": "readWrite",
             "returned": "request"
         },{
-            "name": "sshPublicKey", // v1.x
+            "name": "sshPublicKeys", // v1.x
             "description": "SSH public key(s) of the user.",
             "type": "string",
             "uniqueness": "none",
