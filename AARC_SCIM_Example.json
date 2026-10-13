@@ -15,12 +15,13 @@
     "urn:geant:aarc-community:scim:schemas:core:1.0:User": {
         "voPersonID": "V097531",
         "displayName": "Elizabeth Alexandra Mary Mountbatten Windsor",
-        "givenName":   "Elizabeth Alexandra Mary",
-        "familyName":  "Mountbatten Windsor",
+        "name": {
+            "givenName":   "Elizabeth Alexandra Mary",
+            "familyName":  "Mountbatten Windsor"
+        },
         "email":       "elizabeth@royal.uk",
         "organizationName": "Windsor Castle",
         "schacHomeOrganization": "rct.uk",
-        "voPersonExternalAffiliation": [ "gradstudent@yourvo.org" ],
         "voPersonExternalAffiliation": {
             "value": [ "gradstudent@yourvo.org", "me@myvo.org" ],
             "prior": [ "kindergarten@smallpeople.gov" ]
@@ -51,7 +52,7 @@
         "version": "https://aarc-community.org/attribute/profile/version/1.0",
         "voPersonScopedAffiliation": [ "member@community.of.royals.uk" ],
 
-        "AARCExternalIDs": [
+        "externalIDs": [
            {
                 "iss":"https://github.com",
                 "id":"j-doe"
