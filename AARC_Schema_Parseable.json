@@ -27,7 +27,6 @@
             "name": "name",
             "description": "",
             "type": "complex",
-            "uniqueness": "none",
             "multiValued": true,
             "required": true,
             "mutability": "readWrite",
@@ -89,7 +88,6 @@
             "name": "voPersonExternalAffiliations",
             "description": "One or more home organisations (such as, universities, research institutions or private companies) that this subject is affiliated with. The syntax and semantics follows the eduPersonScopedAffiliation attribute.",
             "type": "complex",
-            "uniqueness": "none",
             "multiValued": true,
             "required": true,
             "mutability": "readWrite",
@@ -105,15 +103,23 @@
                     "required": true,
                     "mutability": "readWrite",
                     "returned": "request"
+                },{
+                    "name": "prior",
+                    "description": "A prior value of this attribute.",
+                    "type": "string",
+                    "uniqueness": "none",
+                    "multiValued": false,
+                    "caseExact": false,
+                    "required": true,
+                    "mutability": "readWrite",
+                    "returned": "request"
                 }
             ]
         },{
             "name": "assurance",
             "description": "The assurance of the subject’s identity, following the components defined in the REFEDS Assurance Framework (RAF), including Identifier Uniqueness, Identity Assurance, and Attribute Assurance. AARC-compliant AAIs MAY also support additional assurance frameworks where relevant.",
             "type": "complex",
-            "uniqueness": "none",
             "multiValued": true,
-            "caseExact": true,
             "required": true,
             "mutability": "readWrite",
             "returned": "always",
@@ -123,7 +129,7 @@
                     "description": "Value of the voPersonExternalAffiliation. Example: gradstudent@yourvo.org",
                     "type": "string",
                     "uniqueness": "none",
-                    "multiValued": true,
+                    "multiValued": false,
                     "caseExact": true,
                     "required": true,
                     "mutability": "readWrite",
@@ -134,9 +140,7 @@
             "name": "entitlements",
             "description": "This attribute describes the groups and roles this subject is a member of (AARC-G069) or the resource or child-resource a subject is allowed to access, optionally specifying certain actions the subject is entitled to perform (AARC-G027).",
             "type": "complex",
-            "uniqueness": "none",
             "multiValued": true,
-            "caseExact": true,
             "required": false,
             "mutability": "readWrite",
             "returned": "request",
@@ -155,7 +159,7 @@
                     "description": "Display name of the entitlement",
                     "type": "string",
                     "uniqueness": "none",
-                    "multiValued": true,
+                    "multiValued": false,
                     "caseExact": false,
                     "required": false,
                     "mutability": "readWrite",
@@ -170,16 +174,6 @@
                     "returned" : "default"
                 }
             ]
-        },{
-            "name": "Version",
-            "description": "This attribute indicates the version of the AARC Attribute Profile that is being used. It provides a clear reference to the specific set of attributes and definitions that the subject’s digital identity conforms to.",
-            "type": "string",
-            "uniqueness": "global",
-            "multiValued": false,
-            "caseExact": true,
-            "required": true,
-            "mutability": "readWrite",
-            "returned": "request"
         },{
             "name": "voPersonScopedAffiliation",
             "description": "Specifies the person's affiliation within the Community/Research infrastructure in broad categories defined in the eduPerson schema. Any scope (e.g. “community.example.org”) used after the at sign MUST be announced by the Collaboration Management",
