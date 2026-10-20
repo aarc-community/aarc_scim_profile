@@ -178,16 +178,6 @@
                 }
             ]
         },{
-            "name": "Version",
-            "description": "This attribute indicates the version of the AARC Attribute Profile that is being used. It provides a clear reference to the specific set of attributes and definitions that the subject’s digital identity conforms to.",
-            "type": "string",
-            "uniqueness": "global",
-            "multiValued": false,
-            "caseExact": true,
-            "required": true,
-            "mutability": "readWrite",
-            "returned": "request"
-        },{
             "name": "voPersonScopedAffiliation", // maybe v1.x
             "description": "Specifies the person's affiliation within the Community/Research infrastructure in broad categories defined in the eduPerson schema. Any scope (e.g. “community.example.org”) used after the at sign MUST be announced by the Collaboration Management",
             "type": "string",
