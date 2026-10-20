@@ -132,7 +132,7 @@
                     "description": "Value of the voPersonExternalAffiliation. Example: gradstudent@yourvo.org",
                     "type": "string",
                     "uniqueness": "none",
-                    "multiValued": true,
+                    "multiValued": false,
                     "caseExact": true,
                     "required": true,
                     "mutability": "readWrite",
@@ -162,14 +162,14 @@
                     "description": "Display name of the entitlement",
                     "type": "string",
                     "uniqueness": "none",
-                    "multiValued": true,
+                    "multiValued": false,
                     "caseExact": false,
                     "required": false,
                     "mutability": "readWrite",
                     "returned": "request"
                 },{
                     "name" : "primary",
-                    "type" : "boolean", // marcus: fix the definition
+                    "type" : "boolean",
                     "multiValued" : false,
                     "description" : "A Boolean value indicating the 'primary' or preferred attribute value for this attribute.  The primary attribute value 'true' MUST appear no more than once.",
                     "required" : false,
