@@ -13,7 +13,7 @@
         "version": "W/\"f250dd84f0671c3\""
     },
     "urn:geant:aarc-community:scim:schemas:core:1.0:User": {
-        "voPersonID": "V097531",
+        "voPersonId": "V097531",
         "displayName": "Elizabeth Alexandra Mary Mountbatten Windsor",
         "name": {
             "givenName":   "Elizabeth Alexandra Mary",
@@ -26,19 +26,18 @@
             "value": [ "gradstudent@yourvo.org", "me@myvo.org" ],
             "prior": [ "kindergarten@smallpeople.gov" ]
         },
-        "assurance": {
-            "value": [
-                "https://refeds.org/assurance/IAP/high",
-                "https://refeds.org/assurance/IAP/medium",
-                "https://refeds.org/assurance/IAP/local-enterprise",
-                "https://refeds.org/assurance/ID/eppn-unique-no-reassign",
-                "https://refeds.org/assurance/ATP/ePA-1m",
-                "https://refeds.org/assurance/ATP/ePA-1d",
-                "https://aai.egi.eu/LoA#Substantial",
-                "https://refeds.org/assurance/ID/unique",
-                "https://refeds.org/assurance/profile/cappuccino",
-                "https://refeds.org/assurance/IAP/low"
-            ]
+        "assurance": [
+                      { "value": "https://refeds.org/assurance/IAP/high" },
+                      { "value": "https://refeds.org/assurance/IAP/medium" },
+                      { "value": "https://refeds.org/assurance/IAP/local-enterprise" },
+                      { "value": "https://refeds.org/assurance/ID/eppn-unique-no-reassign" },
+                      { "value": "https://refeds.org/assurance/ATP/ePA-1m" },
+                      { "value": "https://refeds.org/assurance/ATP/ePA-1d" },
+                      { "value": "https://aai.egi.eu/LoA#Substantial" },
+                      { "value": "https://refeds.org/assurance/ID/unique" },
+                      { "value": "https://refeds.org/assurance/profile/cappuccino" },
+                      { "value": "https://refeds.org/assurance/IAP/low" }
+              ]
         },
         "entitlements": [
             {
@@ -55,10 +54,18 @@
         "externalIDs": [
            {
                 "iss":"https://github.com",
-                "id":"j-doe"
+                "claim_name": "sub",
+                "value":"j-doe",
+                "reassignable": true,
+                "globally_unique": false,
+                "case_sensitive": true
            },{
-               "iss":"https://accounts.google.com",
-               "id":"jdoe@gmail.com"
+                "iss":"https://accounts.google.com",
+                "claim_name": "sub",
+                "value":"jdoe@gmail.com",
+                "reassignable": true,
+                "globally_unique": true,
+                "case_sensitive": false
             }
         ],
 
