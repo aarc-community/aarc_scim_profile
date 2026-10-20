@@ -51,7 +51,20 @@
         "version": "https://aarc-community.org/attribute/profile/version/1.0",
         "voPersonScopedAffiliation": [ "member@community.of.royals.uk" ],
 
-        "externalIDs": [
+        "eduPersonOrcid": "https://orcid.org/0000-0002-1825-0097",
+        "voPersonSshPublicKey": [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqA5FW6m3FbFhCOsRQBxKMRki5qJxoNhZdaeLXg6ym/",
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4/7MGLu0yTQP8mtDNlLtXjvG5WqnXDMoE92bV0whlt"
+        ],
+        "voPersonCertificateDN": [ "C = DE, O = GermanGrid, OU = KIT, CN = Queen Elizabeth" ],
+        "voPersonCertificateIssuerDN": [ "CN=CILogon Basic CA 1, O=CILogon, C=US, DC=cilogon, DC=org" ],
+        "UserType": "Human"
+    },
+    "urn:geant:aarc-community:scim:schemas:extended:1.0:User": {
+        "organizationCountry": "es",
+        "voPersonPolicyAgreement": "https://policy.com/aup.md",
+        "nationalities": ["uk"],
+        "externalIds": [
            {
                 "iss":"https://github.com",
                 "claim_name": "sub",
@@ -67,20 +80,6 @@
                 "globally_unique": true,
                 "case_sensitive": false
             }
-        ],
-
-        "eduPersonOrcid": "https://orcid.org/0000-0002-1825-0097",
-        "voPersonSshPublicKey": [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqA5FW6m3FbFhCOsRQBxKMRki5qJxoNhZdaeLXg6ym/",
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4/7MGLu0yTQP8mtDNlLtXjvG5WqnXDMoE92bV0whlt"
-        ],
-        "voPersonCertificateDN": [ "C = DE, O = GermanGrid, OU = KIT, CN = Queen Elizabeth" ],
-        "voPersonCertificateIssuerDN": [ "CN=CILogon Basic CA 1, O=CILogon, C=US, DC=cilogon, DC=org" ],
-        "UserType": "Human"
-    },
-    "urn:geant:aarc-community:scim:schemas:extended:1.0:User": {
-        "organizationCountry": "es",
-        "voPersonPolicyAgreement": "https://policy.com/aup.md",
-        "nationalities": ["uk"]
+        ]
     }
 }
